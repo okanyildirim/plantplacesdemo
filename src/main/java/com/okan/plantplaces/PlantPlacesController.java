@@ -1,21 +1,20 @@
 package com.okan.plantplaces;
 
 import com.okan.plantplaces.model.Specimen;
-import com.okan.plantplaces.service.ISpecimenServiceStub;
+import com.okan.plantplaces.service.ISpecimenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PlantPlacesController {
 
     @Autowired
-    private ISpecimenServiceStub specimenServiceStub;
+    private ISpecimenService specimenServiceStub;
 
     @RequestMapping(value = "/start")
     public String start(){
