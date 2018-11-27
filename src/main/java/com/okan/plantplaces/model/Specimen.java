@@ -1,12 +1,15 @@
 package com.okan.plantplaces.model;
 
 
+import java.util.Objects;
+
 public class Specimen {
 
     private int SpecimenId;
     private String longitude;
     private String latitude;
     private String description;
+    private int plantId;
 
     public Specimen() {
     }
@@ -58,5 +61,29 @@ public class Specimen {
                 ", latitude='" + latitude + '\'' +
                 ", description='" + description + '\'' +
                 '}';
+    }
+
+    public int getPlantId() {
+        return plantId;
+    }
+
+    public void setPlantId(int plantId) {
+        this.plantId = plantId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Specimen specimen = (Specimen) o;
+        return SpecimenId == specimen.SpecimenId &&
+                plantId == specimen.plantId &&
+                Objects.equals(longitude, specimen.longitude) &&
+                Objects.equals(latitude, specimen.latitude) &&
+                Objects.equals(description, specimen.description);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(SpecimenId, longitude, latitude, description, plantId);
     }
 }
